@@ -22,9 +22,9 @@ parse_short_path () {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}$(now)|\[\033[01;32m\]\u@\h\[\033[00m\]|\[\033[01;34m\]$(parse_short_path \w \W)\[\033[00m\]|\[\033[01;31m\]$(parse_git_branch)\e[0m\n\$ '
+    PS1='${debian_chroot:+($debian_chroot)}$(now)|\[\033[01;32m\]\u@\h\[\033[00m\]|\[\033[01;34m\]$(parse_short_path \w \W)\[\033[00m\]\[\033[01;31m\]$(__git_ps1)\e[0m\n\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}$(now)|\u@\h|$(parse_short_path \w \W)|$(parse_git_branch)\n\$ '
+    PS1='${debian_chroot:+($debian_chroot)}$(now)|\u@\h|$(parse_short_path \w \W)$(__git_ps1)\n\$ '
 fi
 
 unset color_prompt force_color_prompt
