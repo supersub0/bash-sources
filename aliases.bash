@@ -55,5 +55,8 @@ alias df='df -H'
 # du
 alias du='du -ch'
 
+# docker-ip $CONTAINER
+alias docker-ip='docker inspect -f "{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+
 # wakeonlan
 # alias wakeup='/usr/bin/wakeonlan ??:??:??:??:??:??'
